@@ -71,7 +71,7 @@ EditorControllerMixin = Ember.Mixin.create({
     }),
 
     postOrPage: Ember.computed('model.page', function () {
-        return this.get('model.page') ? 'Page' : 'Post';
+        return this.get('model.page') ? '独立页面' : '博文';
     }),
 
     // compares previousTagNames to tagNames
@@ -173,9 +173,9 @@ EditorControllerMixin = Ember.Mixin.create({
     // used on window.onbeforeunload
     unloadDirtyMessage: function () {
         return '==============================\n\n' +
-            'Hey there! It looks like you\'re in the middle of writing' +
-            ' something and you haven\'t saved all of your content.' +
-            '\n\nSave before you go!\n\n' +
+            '嘿，老兄！好像你还在编辑博文吧，' +
+            '而且博文内容也还没有保存哦！' +
+            '\n\n建议保存先！\n\n' +
             '==============================';
     },
 
@@ -185,12 +185,12 @@ EditorControllerMixin = Ember.Mixin.create({
         errors: {
             post: {
                 published: {
-                    published: 'Update failed.',
-                    draft: 'Saving failed.'
+                    published: '更新失败。',
+                    draft: '保存失败。'
                 },
                 draft: {
-                    published: 'Publish failed.',
-                    draft: 'Saving failed.'
+                    published: '发布失败。',
+                    draft: '保存失败。'
                 }
 
             }
@@ -199,12 +199,12 @@ EditorControllerMixin = Ember.Mixin.create({
         success: {
             post: {
                 published: {
-                    published: 'Updated.',
-                    draft: 'Saved.'
+                    published: '已更新。',
+                    draft: '已保存。'
                 },
                 draft: {
-                    published: 'Published!',
-                    draft: 'Saved.'
+                    published: '已发布！',
+                    draft: '已保存。'
                 }
             }
         }
@@ -216,14 +216,14 @@ EditorControllerMixin = Ember.Mixin.create({
             type = this.get('postOrPage');
 
         if (status === 'published') {
-            message += `&nbsp;<a href="${path}">View ${type}</a>`;
+            message += `&nbsp;<a href="${path}">查看 ${type}</a>`;
         }
         this.notifications.showSuccess(message.htmlSafe(), {delayed: delay});
     },
 
     showErrorNotification: function (prevStatus, status, errors, delay) {
         var message = this.messageMap.errors.post[prevStatus][status],
-            error = (errors && errors[0] && errors[0].message) || 'Unknown Error';
+            error = (errors && errors[0] && errors[0].message) || '未知错误';
 
         message += '<br />' + error;
 

@@ -10,15 +10,15 @@ var EditorSaveButtonView = Ember.View.extend({
     }),
 
     publishText: Ember.computed('controller.model.isPublished', 'controller.postOrPage', function () {
-        return this.get('controller.model.isPublished') ? 'Update ' + this.get('controller.postOrPage') : 'Publish Now';
+        return this.get('controller.model.isPublished') ? '更新' + this.get('controller.postOrPage') : '立即发布';
     }),
 
     draftText: Ember.computed('controller.model.isPublished', function () {
-        return this.get('controller.model.isPublished') ? 'Unpublish' : 'Save Draft';
+        return this.get('controller.model.isPublished') ? '撤销发布' : '保存草稿';
     }),
 
     deleteText: Ember.computed('controller.postOrPage', function () {
-        return 'Delete ' + this.get('controller.postOrPage');
+        return '删除' + this.get('controller.postOrPage');
     }),
 
     saveText: Ember.computed('controller.willPublish', 'publishText', 'draftText', function () {

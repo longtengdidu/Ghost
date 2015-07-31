@@ -16,7 +16,7 @@ var LeaveEditorController = Ember.Controller.extend({
             }
 
             if (!transition || !editorController) {
-                this.notifications.showError('Sorry, there was an error in the application. Please let the Ghost team know what happened.');
+                this.notifications.showError('抱歉，系统故障。请将此问题提交至 Ghost 开发团队。');
 
                 return true;
             }
@@ -47,11 +47,11 @@ var LeaveEditorController = Ember.Controller.extend({
 
     confirm: {
         accept: {
-            text: 'Leave',
+            text: '离开此页',
             buttonClass: 'btn btn-red'
         },
         reject: {
-            text: 'Stay',
+            text: '留在此页',
             buttonClass: 'btn btn-default btn-minor'
         }
     }

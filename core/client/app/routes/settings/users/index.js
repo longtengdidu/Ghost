@@ -13,7 +13,7 @@ paginationSettings = {
 };
 
 UsersIndexRoute = AuthenticatedRoute.extend(styleBody, CurrentUserSettings, PaginationRouteMixin, {
-    titleToken: 'Users',
+    titleToken: '用户组',
 
     classNames: ['settings-view-users'],
 

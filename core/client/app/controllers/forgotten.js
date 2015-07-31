@@ -29,12 +29,12 @@ var ForgottenController = Ember.Controller.extend(ValidationEngine, {
                     }
                 }).then(function () {
                     self.toggleProperty('submitting');
-                    self.notifications.showSuccess('Please check your email for instructions.', {delayed: delay});
+                    self.notifications.showSuccess('请查看邮箱中的邮件。', {delayed: delay});
                     self.set('email', '');
                     self.transitionToRoute('signin');
                 }).catch(function (resp) {
                     self.toggleProperty('submitting');
-                    self.notifications.showAPIError(resp, {defaultErrorText: 'There was a problem with the reset, please try again.'});
+                    self.notifications.showAPIError(resp, {defaultErrorText: '重置密码出现故障，请重试。'});
                 });
             }).catch(function (errors) {
                 self.toggleProperty('submitting');

@@ -6,9 +6,9 @@
             {{#link-to "settings" class="btn btn-default btn-back"}}Back{{/link-to}}
         {{/if}}
 
-        <h2 class="page-title">Users</h2>
+        <h2 class="page-title">用户列表</h2>
         <section class="page-actions">
-            <button class="btn btn-green" {{action "openModal" "invite-new-user"}} >New&nbsp;User</button>
+            <button class="btn btn-green" {{action "openModal" "invite-new-user"}} >邀请新用户</button>
         </section>
     </header>
 
@@ -27,14 +27,14 @@
                     <div class="user-list-item-body">
                         <span class="name">{{user.email}}</span><br>
                             {{#if user.model.pending}}
-                                <span class="red">Invitation not sent - please try again</span>
+                                    <span class="red">邀请邮件未能发出，请重试</span>
                             {{else}}
-                                <span class="description">Invitation sent: {{user.model.created_at}}</span>
+                                    <span class="description">邀请邮件已发送：{{user.model.created_at}}</span>
                             {{/if}}
                     </div>
                     <aside class="user-list-item-aside">
-                        <a class="user-list-action" href="#" {{action "revoke"}}>Revoke</a>
-                        <a class="user-list-action" href="#" {{action "resend"}}>Resend</a>
+                            <a class="user-list-action" href="#" {{action "revoke"}}>撤销</a>
+                            <a class="user-list-action" href="#" {{action "resend"}}>重发</a>
                     </aside>
                 </div>
             {{/each}}
@@ -58,7 +58,7 @@
                         {{user.model.name}}
                     </span>
                     <br>
-                    <span class="description">Last seen: {{user.last_login}}</span>
+                        <span class="description">最后一次登录时间：{{user.last_login}}</span>
                 </div>
                 <aside class="user-list-item-aside">
                     {{#unless user.model.isAuthor}}

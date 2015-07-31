@@ -21,7 +21,7 @@ export default Ember.Controller.extend(SimpleAuth.AuthenticationControllerMixin,
 
             this._super(this.getProperties('identification', 'password')).then(function () {
                 self.send('closeModal');
-                self.notifications.showSuccess('Login successful.');
+                self.notifications.showSuccess('登录成功。');
                 self.set('password', '');
             }).catch(function () {
                 // if authentication fails a rejected promise will be returned.

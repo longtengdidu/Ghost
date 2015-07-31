@@ -126,7 +126,7 @@ middleware = {
                     if (!user) {
                         var msg = {
                             type: 'error',
-                            message: 'Please Sign In',
+                            message: '请登录',
                             status: 'passive'
                         };
                         res.status(401);
@@ -464,7 +464,7 @@ middleware = {
                 return res.redirect(config.urlFor({relativeUrl: decodeURIComponent(forward)}));
             } else {
                 res.error = {
-                    message: 'Wrong password'
+                    message: '密码错误'
                 };
                 return next();
             }

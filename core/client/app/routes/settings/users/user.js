@@ -3,7 +3,7 @@ import CurrentUserSettings from 'ghost/mixins/current-user-settings';
 import styleBody from 'ghost/mixins/style-body';
 
 var SettingsUserRoute = AuthenticatedRoute.extend(styleBody, CurrentUserSettings, {
-    titleToken: 'User',
+    titleToken: '用户组 - 用户管理',
 
     classNames: ['settings-view-user'],
 

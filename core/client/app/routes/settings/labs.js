@@ -4,7 +4,7 @@ import CurrentUserSettings from 'ghost/mixins/current-user-settings';
 import loadingIndicator from 'ghost/mixins/loading-indicator';
 
 var LabsRoute = AuthenticatedRoute.extend(styleBody, loadingIndicator, CurrentUserSettings, {
-    titleToken: 'Labs',
+    titleToken: '实验室',
 
     classNames: ['settings'],
     beforeModel: function () {

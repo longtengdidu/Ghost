@@ -12,12 +12,12 @@ var countWords = Ember.HTMLBars.makeBoundHelper(function (arr /* hashParams */) 
     markdown = arr[0] || '';
 
     if (/^\s*$/.test(markdown)) {
-        return '0 words';
+        return '0 个字';
     }
 
     count = counter(markdown);
 
-    return count + (count === 1 ? ' word' : ' words');
+    return count + (count === 1 ? ' 个字' : ' 个字');
 });
 
 export default countWords;

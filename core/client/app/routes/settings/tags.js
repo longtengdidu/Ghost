@@ -18,7 +18,7 @@ TagsRoute = AuthenticatedRoute.extend(CurrentUserSettings, PaginationRouteMixin,
         }
     },
 
-    titleToken: 'Tags',
+    titleToken: '标签管理',
 
     beforeModel: function () {
         return this.get('session.user')

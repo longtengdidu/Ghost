@@ -101,8 +101,8 @@ NavigationController = Ember.Controller.extend({
                 blogUrl = this.get('config').blogUrl,
                 blogUrlRegex = new RegExp('^' + blogUrl + '(.*)', 'i'),
                 navItems = this.get('navigationItems'),
-                message = 'One of your navigation items has an empty label. ' +
-                    '<br /> Please enter a new label or delete the item before saving.',
+                message = '某个导航项的标题为空， ' +
+                    '<br /> 请为其添加标题或将其删除才能保存。',
                 match;
 
             // Don't save if there's a blank label.
@@ -150,7 +150,7 @@ NavigationController = Ember.Controller.extend({
             this.notifications.closePassive();
 
             this.get('model').save().then(function () {
-                self.notifications.showSuccess('Navigation items saved.');
+                self.notifications.showSuccess('导航项已保存。');
             }).catch(function (err) {
                 self.notifications.showErrors(err);
             });
